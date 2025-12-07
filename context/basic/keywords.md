@@ -42,35 +42,100 @@
 
 ### CSNG(numeric expression)
 **Syntax:** `CSNG(numeric expression)`
-**Description:** Returns the single-precision form of numeric expression. A! = CSNG(0.66666666666) 12 DATA constant list Defines a set of constants (numeric and/or string) to be accessed by a READ command. DATA 10,25,50,15, "Probabilities", "Total" DATES$ Keeps track of the current date, in string form. You may access it like any string variable. PRINT DATES$ DATES$ = "11/02/82" DAYS$ Keeps track of the current day of the week, in string form. You may access DAY$ like any string variable. PRINT DAYS$ DAYS$ = "Fri" DEFDBL letter list Defines all of the variables which begin with the letters in letter list to be double precision variables. Letter list consists of individual letters and/or letter ranges of the form letter1-letter2. 100 DEFDBL D, X-Z DEFINT letter list Defines all of the variables which begin with the letters in letter list to be integer variables. letter list consists of individual letters and/or letter ranges of the form letter1-letter2. DEFINT D, X-Z DEFSNG letter list Defines all of the variables which begin with the letters in letter list to be single precision variables. letter list consists of individual letters and/or letter ranges of the form letter1-letter2. DEFSNG D, X-Z DEFSTR letter list Defines all of the variables which begin with the letters in letter list to be string variables. letter list consists of individual letters and/or letter ranges of the form letter1-letter2. DEFSTR D, X-Z DIM variable name(dimensions) list Defines variable name as an array with the given dimensions. dimensions is a list of one or more numeric expressions, defining the "length", "width", and so on for the array. DIM A$(10) BAL%(10,10) EDIT line number range Enter text editing mode using the given lines. EDIT 100-1000 EDIT EDIT-200 END Terminates execution of the BASIC program. END ERL Returns the line number of the last error. IF ERL = 140 THEN RESUME 150 ERR Returns the error code number of the last error. IF ERR = 18 THEN RESUME 13
+**Description:** Converts a value to single-precision floating point (`A! = CSNG(0.66666666666)`).
+
+### DATA constant list
+**Syntax:** `DATA constant list`
+**Description:** Defines a block of constants accessed by `READ` statements.
+**Example:** `DATA 10,25,50,15,"Probabilities","Total"`
+
+### DATES$
+**Syntax:** `DATES$`
+**Description:** Holds the current date as a string.
+**Example:** `PRINT DATES$` or `DATES$ = "11/02/82"`
+
+### DAYS$
+**Syntax:** `DAYS$`
+**Description:** Keeps the current day of the week as a string.
+**Example:** `DAYS$ = "Fri"`
+
+### DEFDBL letter list
+**Syntax:** `DEFDBL letter list`
+**Description:** Declares variables beginning with the listed letters as double precision.
+**Example:** `100 DEFDBL D, X-Z`
+
+### DEFINT letter list
+**Syntax:** `DEFINT letter list`
+**Description:** Declares variables beginning with the letters in the list as integers.
+**Example:** `DEFINT D, X-Z`
+
+### DEFSNG letter list
+**Syntax:** `DEFSNG letter list`
+**Description:** Declares listed letters as single precision variables.
+**Example:** `DEFSNG D, X-Z`
+
+### DEFSTR letter list
+**Syntax:** `DEFSTR letter list`
+**Description:** Declares listed letters as string variables.
+**Example:** `DEFSTR D, X-Z`
+
+### DIM variable name(dimensions) list
+**Syntax:** `DIM variable name(dimensions) list`
+**Description:** Defines `variable` as an array with the specified dimensions.
+**Example:** `DIM A$(10)` or `BAL%(10,10)`
+
+### EDIT line number range
+**Syntax:** `EDIT line number range`
+**Description:** Enters text-editing mode bounded by the given lines.
+**Example:** `EDIT 100-1000`, `EDIT` (current), or `EDIT-200` to go back.
+
+### END
+**Syntax:** `END`
+**Description:** Terminates program execution.
+
+### ERL
+**Syntax:** `ERL`
+**Description:** Returns the line number of the last error (`IF ERL = 140 THEN RESUME 150`).
+
+### ERR
+**Syntax:** `ERR`
+**Description:** Returns the error number of the last error.
+**Example:** `IF ERR = 18 THEN RESUME`
 
 ### ERROR
 **Syntax:** `ERROR`
-**Description:** *numeric expression* Simulates the error specified by *numeric expression.* ERROR 35 ERROR ERR
+**Description:** Simulates the runtime error specified by the numeric expression.
+**Example:** `ERROR 35`
 
 ### EXP
-**Syntax:** `EXP`
-**Description:** (*numeric expression*) Returns the exponential (antilog) of *numeric expression.* PRINT EXP(14)
+**Syntax:** `EXP(numeric expression)`
+**Description:** Returns the exponential (antilog) of the numeric expression.
+**Example:** `PRINT EXP(14)`
 
 ### FIX
-**Syntax:** `FIX`
-**Description:** (*numeric expression*) Returns the whole number portion of *numeric expression.* 10 A% = FIX(A2#)
+**Syntax:** `FIX(numeric expression)`
+**Description:** Returns the whole number portion of a numeric expression.
+**Example:** `10 A% = FIX(A2#)`
 
 ### FOR
-**Syntax:** `FOR`
-**Description:** *counter variable* = *initial value* **TO** *final value* **STEP** *increment* ...**NEXT** *counter variable* Executes the commands between the FOR command and the NEXT command repetitively, varying counter variable from initial value to final value, adding increment to it each time BASIC ends the loop. FOR I = 1 TO 100 STEP 4: (): NEXT I
+**Syntax:** `FOR counter = start TO end [STEP increment]`
+**Description:** Executes the loop body while varying `counter` from `start` up to `end`, optionally adjusting by `increment`.
+**Example:** `FOR I = 1 TO 100 STEP 4` … `NEXT I`
 
 ### FRE
-**Syntax:** `FRE`
-**Description:** (*expression*) Returns the current amount of unused numeric memory in bytes when expression is numeric and the current total amount of unused string space when expression is string-type. ?FRE(0) ?FRE("")
+**Syntax:** `FRE(expression)`
+**Description:** Returns unused numeric memory in bytes for numeric expressions or unused string space for string expressions.
+**Example:** `?FRE(0)` and `?FRE("")`
 
 ### GOSUB
-**Syntax:** `GOSUB`
-**Description:** *line number* Transfers program control to the subroutine beginning at *line number.* GOSUB 1000
+**Syntax:** `GOSUB line number`
+**Description:** Transfers control to the subroutine beginning at `line number`.
+**Example:** `GOSUB 1000`
 
 ### GOTO
-**Syntax:** `GOTO`
-**Description:** *line number* Branches program control to the specified line *number.* GOTO 1000
+**Syntax:** `GOTO line number`
+**Description:** Branches directly to the specified line number.
+**Example:** `GOTO 1000`
 
 ### HIMEM
 **Syntax:** `HIMEM`
@@ -119,30 +184,37 @@
 ### NEW
 **Syntax:** `NEW`
 **Description:** Erases the current program and resets numeric variables to zero and string variables to null.
+**Example:** Run `NEW` before loading a fresh program.
 
 ### ON ERROR GOTO line number
 **Syntax:** `ON ERROR GOTO line number`
-**Description:** Sets an error-trapping interrupt that branches to `line number` when a runtime error occurs.
+**Description:** Sets an error-trapping interrupt that jumps to `line number` when a runtime error occurs.
+**Example:** `ON ERROR GOTO 200`
 
 ### ON TIMES = "time" GOSUB line number
 **Syntax:** `ON TIMES = "time" GOSUB line number`
 **Description:** Defines a clock-based interrupt that GOSUBs to `line number` when the clock matches `time`.
+**Example:** `ON TIMES = "12:00:00" GOSUB 100`
 
 ### ON numeric expression GOTO line number list
 **Syntax:** `ON numeric expression GOTO line number list`
 **Description:** Evaluates the expression to `n` and branches to the nth line number in the list.
+**Example:** `ON A% GOTO 100,200,300`
 
 ### ON numeric expression GOSUB line number list
 **Syntax:** `ON numeric expression GOSUB line number list`
 **Description:** Calls the nth subroutine when the expression evaluates to `n`.
+**Example:** `ON A% GOSUB 100,200,300`
 
 ### OUT port number, byte value
 **Syntax:** `OUT port number, byte value`
-**Description:** Writes a byte to the specified CPU port (`OUT 55.100`).
+**Description:** Writes a byte to the specified CPU port.
+**Example:** `OUT 55,100`
 
 ### PEEK (memory address)
-**Syntax:** `PEEK (memory address)`
-**Description:** Reads the byte stored at the specified address (`A% = PEEK(16999)`).
+**Syntax:** `PEEK(memory address)`
+**Description:** Reads the byte stored at the specified address.
+**Example:** `A% = PEEK(16999)`
 
 ### POKE memory address, byte value
 **Syntax:** `POKE memory address, byte value`

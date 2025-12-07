@@ -4,7 +4,6 @@
 
 | Decimal | Hex | Binary | Printed Character | Keyboard Character |
 | --- | --- | --- | --- | --- |
-| Decimal | Hex | Binary | Printed Character | Keyboard Character |
 | 0 | 00 | 00000000 |  | PAUSE |
 | 1 | 01 | 00000001 |  | CTRL A |
 | 2 | 02 | 00000010 |  | CTRL B |
